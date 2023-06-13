@@ -105,3 +105,37 @@ let customer=  getBirth(0);
 
 console.log(customer?.birthday)
 console.log(customer?.birthday?.getFullYear)
+
+
+// this is just for nodejs configuration, we don't need the tsc-node because we've already the tsc in our machine
+//
+// //imports
+import express, {Express, Response, Request} from 'express';
+
+
+
+const app:Express = express();
+
+//config
+const PORT = process.env.PORT || 3001;
+
+//
+app.use(express.json());
+//middlewares
+
+
+//routes
+
+app.get('/api', (req:Request, res:Response)=>{
+	console.log('Testing..');
+	res.send('Hola mundo');
+});
+app.get('/hola', (req:Request, res:Response)=>{
+	console.log('Testing..');
+	res.send('AHORA TESTING')
+});
+//
+
+//listening
+app.listen(PORT, ()=> console.log('app running on port',PORT));
+
